@@ -6,7 +6,7 @@ featureMatrix = [];
 #Enter picture directory, extract pictures, return to main program directory
 cd ([mainDirectory "/" folder])
 files = glob("*[.jpg.png]");
-cd mainDirectory
+cd (mainDirectory)
 
 #Call imageToFeatureVector to scale and unroll each image into featureMatrix
 for i = [1:1:length(files)]
