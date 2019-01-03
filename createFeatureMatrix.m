@@ -1,11 +1,12 @@
 function featureMatrix = createFeatureMatrix(folder)
 
+mainDirectory = pwd;
 featureMatrix = [];
 
 #Enter picture directory, extract pictures, return to main program directory
-cd (["/Users/adrianpasqualini/Documents/octave/ImageProcessing" folder])
+cd ([mainDirectory "/" folder])
 files = glob("*[.jpg.png]");
-cd "/Users/adrianpasqualini/Documents/octave/ImageProcessing"
+cd (mainDirectory)
 
 #Call imageToFeatureVector to scale and unroll each image into featureMatrix
 for i = [1:1:length(files)]
@@ -13,6 +14,7 @@ for i = [1:1:length(files)]
     featureMatrix = [featureMatrix imageToFeatureVector(file, folder, false)];
 end;
 
+#Add Layer of 1s to featureMatrix
 featureMatrix = [ones(1, length(featureMatrix(1,:))) ; featureMatrix];
 
 end;
