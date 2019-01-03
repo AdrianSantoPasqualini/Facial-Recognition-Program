@@ -1,12 +1,9 @@
-function featureVector = imageToFeatureVector(imageName, folder, wantToSee)
+function featureVector = imageToFeatureVector(imageName, folder, wantToSee, dimension)
 
 mainDirectory = pwd;
 
 #Enter Picture Directory
 cd ([mainDirectory "/" folder])
-
-#Set picture size to dimension x dimension
-dimension = 50;
 
 #Checks if imageName is in the folder. Raises Error otherwise.
 if isempty(glob(imageName)) == 1
