@@ -13,6 +13,7 @@ end
 
 #Create scaled gray image
 imageColour = imread(imageName);
+cd (mainDirectory);
 #Resize Image using Octave Forge Image Package
 imageColour = imresize(imageColour, [dimension, dimension]);
 [imageIndex cmap] = rgb2ind(imageColour);
@@ -26,8 +27,6 @@ if wantToSee
 setenv("GNUTERM", "qt");
 imshow(imageGray);
 end
-
-cd (mainDirectory);
 
 #### Useful Info To Test
 #size(imageGray);
