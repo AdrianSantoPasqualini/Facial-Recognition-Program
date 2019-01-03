@@ -1,4 +1,4 @@
-function featureMatrix = createFeatureMatrix(folder)
+function featureMatrix = createFeatureMatrix(folder, dimension)
 
 mainDirectory = pwd;
 featureMatrix = [];
@@ -11,7 +11,7 @@ cd (mainDirectory)
 #Call imageToFeatureVector to scale and unroll each image into featureMatrix
 for i = [1:1:length(files)]
     file = char(files(i));
-    featureMatrix = [featureMatrix imageToFeatureVector(file, folder, false)];
+    featureMatrix = [featureMatrix imageToFeatureVector(file, folder, false, dimension)];
 end;
 
 #Add Layer of 1s to featureMatrix
